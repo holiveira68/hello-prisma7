@@ -1,0 +1,15 @@
+info:
+  name: GET User
+  type: http
+  seq: 18
+
+http:
+  method: GET
+  url: http://localhost:3000/auth
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
