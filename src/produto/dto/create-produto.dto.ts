@@ -18,4 +18,6 @@ export class CreateProdutoDto {
     @Min(0)
     estoque: number;
 
+    
+
 }

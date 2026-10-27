@@ -1,0 +1,21 @@
+info:
+  name: PATCH Usuario
+  type: http
+  seq: 16
+
+http:
+  method: PATCH
+  url: http://localhost:3000/usuario/1
+  body:
+    type: json
+    data: |-
+      {
+        "nome":"Helder Ramos"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

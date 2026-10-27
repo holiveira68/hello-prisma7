@@ -1,0 +1,25 @@
+info:
+  name: Post Produto
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3000/produto
+  body:
+    type: json
+    data: |-
+      {
+        "nome": "Teclado" ,
+        "descricao":"Teclado Gamer",
+        "preco":45,
+        "estoque": 10,
+        "categoriaId": 5
+        }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

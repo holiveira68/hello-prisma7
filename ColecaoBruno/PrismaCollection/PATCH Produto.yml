@@ -1,0 +1,21 @@
+info:
+  name: PATCH Produto
+  type: http
+  seq: 1
+
+http:
+  method: PATCH
+  url: http://localhost:3000/produto/1
+  body:
+    type: json
+    data: |-
+      {
+        "nome":"Notebook Pro"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
