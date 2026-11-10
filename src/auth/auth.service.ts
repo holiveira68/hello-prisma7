@@ -1,12 +1,17 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { RegisterDto } from './dto/register.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
+import { JwtService } from '@nestjs/jwt';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 @Injectable()
 export class AuthService {
     constructor(
         private readonly prisma: PrismaService,
+        private readonly jwtService: JwtService,
     ) { }
     async register(registerDto: RegisterDto) {
         const { name, email, password } = registerDto;
@@ -44,4 +49,33 @@ export class AuthService {
             role: user.role,
         }));
     }
+
+    async login(email: string, password: string) {
+        const user = await this.prisma.user.findUnique({
+            where: { email },
+        });
+        if (!user) {
+            throw new UnauthorizedException(
+                'E-mail ou senha inválidos',
+            );
+        }
+        const passwordIsValid = await bcrypt.compare(
+            password,
+            user.password,
+        );
+        if (!passwordIsValid) {
+            throw new UnauthorizedException(
+                'E-mail ou senha inválidos',
+            );
+        }
+        const accessToken = this.jwtService.sign({
+            sub: user.id,
+            email: user.email,
+            role: user.role,
+        });
+        return {
+            access_token: accessToken,
+        };
+    }
+
 }

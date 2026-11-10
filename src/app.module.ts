@@ -10,7 +10,9 @@ import { AuthModule } from './auth/auth.module';
 
 
 @Module({
-  imports: [ConfigModule.forRoot({isGlobal:true}),
+  imports: [ConfigModule.forRoot({
+    isGlobal:true, 
+    envFilePath: '.env',}),
     ProdutoModule, PrismaModule, CategoriaModule, UsuarioModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
