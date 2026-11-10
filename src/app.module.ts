@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { CategoriaModule } from './categoria/categoria.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { AuthModule } from './auth/auth.module';
+import { PrismaService } from './prisma/prisma.service';
 
 
 @Module({
@@ -15,6 +16,6 @@ import { AuthModule } from './auth/auth.module';
     envFilePath: '.env',}),
     ProdutoModule, PrismaModule, CategoriaModule, UsuarioModule, AuthModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}

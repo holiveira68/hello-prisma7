@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, UseGuards } from '@nestjs/common';
 import { ProdutoService } from './produto.service';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('produto')
 export class ProdutoController {
@@ -12,6 +13,7 @@ export class ProdutoController {
     return this.produtoService.create(createProdutoDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   findAll() {
     return this.produtoService.findAll();
