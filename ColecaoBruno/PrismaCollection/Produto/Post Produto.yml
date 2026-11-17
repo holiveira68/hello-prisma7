@@ -10,13 +10,15 @@ http:
     type: json
     data: |-
       {
-        "nome": "Teclado" ,
-        "descricao":"Teclado Gamer",
+        "nome": "Teclado super" ,
+        "descricao":"Teclado Super Gamer",
         "preco":45,
         "estoque": 10,
         "categoriaId": 5
         }
-  auth: inherit
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjExLCJlbWFpbCI6ImhlbGRlcjg5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc5NDk0MzI5OSwiZXhwIjoxNzk0OTQ2ODk5fQ.uLcEvVviAVjCTtrPT9PHLKe-XAEFM-5V-kbvTkvsZNs
 
 settings:
   encodeUrl: true

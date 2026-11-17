@@ -10,9 +10,10 @@ http:
     type: json
     data: |-
       {
-        "nome": "Helder Oliveira",
-        "email":"helder@gmail.com",
-        "senhaHash":"123456"
+        "nome": "Helder Super Oliveira",
+        "email":"helder9@gmail.com",
+        "senha":"123456",
+        "role": "ADMIN"
         }
   auth: inherit
 
@@ -21,3 +22,4 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+​

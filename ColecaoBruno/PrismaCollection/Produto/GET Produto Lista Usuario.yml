@@ -1,0 +1,17 @@
+info:
+  name: GET Produto Lista Usuario
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: http://localhost:3000/produto/me
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoiaGVsZGVyMkBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc5NDk0MDEwNCwiZXhwIjoxNzk0OTQzNzA0fQ.o6Hrz5hRppc6C62C6qH-JOtBDdqBa9DGkMkT4hCtopM
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

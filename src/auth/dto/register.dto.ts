@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
+import { IsEmail, IsEnum, IsNotEmpty, MinLength } from 'class-validator';
 
 export class RegisterDto {
     @IsNotEmpty()
@@ -7,5 +7,10 @@ export class RegisterDto {
     email: string;
     @MinLength(6)
     password: string;
+
+    @IsEnum(['USER', 'ADMIN'])
+    role: 'USER' | 'ADMIN';
+
+    
     
 }

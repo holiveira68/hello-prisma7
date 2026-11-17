@@ -15,6 +15,7 @@ export class AuthService {
     ) { }
     async register(registerDto: RegisterDto) {
         const { name, email, password } = registerDto;
+        // Poderia colocar apenas role acima (.., password, role), para pegar do Bruno
         const existingUser = await this.prisma.user.findUnique({
             where: { email },
         });
@@ -29,6 +30,9 @@ export class AuthService {
                 name,
                 email,
                 password: passwordHash,
+                role: registerDto.role || 'USER',
+                // se colocasse role nos parametros acima, poderia colocar apenas role, sem o registerDto.role
+                
             },
         });
         return {
