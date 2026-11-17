@@ -6,7 +6,9 @@ info:
 http:
   method: GET
   url: http://localhost:3000/produto
-  auth: inherit
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoiaGVsZGVyMkBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc5NDkzNzU1NiwiZXhwIjoxNzk0OTQxMTU2fQ.z-IVfmYyxRBOdkCoGPx8fgUeDKSj3efJ27z1mbkj8HM
 
 settings:
   encodeUrl: true

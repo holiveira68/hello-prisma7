@@ -7,8 +7,8 @@ import { AuthModule } from '../auth/auth.module';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Module({
-  imports: [PrismaModule, PassportModule, AuthModule],
+  imports: [PrismaModule,  AuthModule],
   controllers: [ProdutoController],
-  providers: [ProdutoService, JwtAuthGuard],
+  providers: [ProdutoService],
 })
 export class ProdutoModule {}
